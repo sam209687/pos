@@ -16,5 +16,16 @@ class Kernel extends HttpKernel
     protected $routeMiddleware = [
         // ... other middlewares
         'role' => \App\Http\Middleware\CheckRole::class,
+        'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
+        'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
+    ];
+
+    protected $middlewareGroups = [
+        'web' => [
+            // ... existing middleware
+            \App\Http\Middleware\SecurityHeaders::class,
+            \App\Http\Middleware\VerifyCsrfToken::class,
+            \Illuminate\Session\Middleware\AuthenticateSession::class,
+        ],
     ];
 }

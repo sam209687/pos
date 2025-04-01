@@ -58,4 +58,20 @@ class User extends Authenticatable
     {
         return $this->role === 'admin';
     }
+
+    public function setPasswordAttribute($value)
+    {
+        $this->attributes['password'] = bcrypt($value);
+    }
+
+    public static function passwordRules()
+    {
+        return [
+            'required',
+            'string',
+            'min:8',
+            'regex:/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]+$/',
+            'confirmed'
+        ];
+    }
 }

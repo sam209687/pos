@@ -10,6 +10,9 @@ use App\Http\Controllers\BrandController;
 use App\Http\Controllers\SalesController;
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\QRCodeController;
+use Illuminate\Cache\RateLimiting\Limit;
+use Illuminate\Support\Facades\RateLimiter;
+use Illuminate\Http\Request;
 
 Route::get('/', function () {
     return ['Laravel' => app()->version()];
@@ -61,4 +64,21 @@ Route::middleware('auth')->group(function () {
 
     Route::get('/receipts/{sale}/view', [QRCodeController::class, 'viewReceipt'])
         ->name('receipts.view');
+});
+
+RateLimiter::for('api', function (Request $request) {
+    return Limit::perMinute(60)->by($request->user()?->id ?: $request->ip());
+});
+
+RateLimiter::for('login', function (Request $request) {
+    return Limit::perMinute(5)->by($request->ip());
+});
+
+// Apply rate limiting to routes
+Route::middleware(['throttle:login'])->group(function () {
+    Route::post('login', [LoginController::class, 'login']);
+});
+
+Route::middleware(['throttle:api'])->group(function () {
+    // API routes
 });
