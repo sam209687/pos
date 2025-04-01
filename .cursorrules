@@ -1,0 +1,154 @@
+# Cursor Rules
+
+## Instructions
+
+- Record fixes for mistakes or corrections to avoid repetition in the `Lessons` section.
+- Organize thoughts and plan steps before starting a task in the `Scratchpad` section.
+- Clear old tasks if necessary.
+- Use todo markers for progress tracking:
+  - `[X]` Completed tasks
+  - `[ ]` Pending tasks
+- Update Scratchpad after completing subtasks.
+- Reflect and plan after milestones for better task management.
+- Always refer to Scratchpad before planning the next step.
+
+## Lessons
+
+## Scratchpad
+
+Project Setup Phase
+[ ] Initialize project structure
+Set up Git repository
+Create basic directory structure
+Set up development environment
+Configure PHP framework (Laravel recommended)
+
+
+[ ] Database Design
+Design database schema for:
+Users table (admin and POS users)
+Products table
+Categories table
+Brands table
+Sales table
+Sale_items table
+Payment_methods table
+Create migration files
+Set up database relationships
+
+
+Core Development Phases
+1. Authentication System
+[ ] Implement user authentication
+Login system
+Password hashing
+Session management
+Role-based access control
+User management CRUD operations
+
+
+2. Admin Panel Development
+[ ] Product Management
+CRUD operations for products
+Image upload functionality
+Product code generation system
+Stock management
+
+
+[ ] Category Management
+CRUD operations for categories
+Category-product relationships
+
+
+[ ] Brand Management
+CRUD operations for brands
+Brand-product relationships
+
+
+[ ] Sales Tracking
+Sales history view
+Report generation system
+Export functionality (CSV/PDF)
+Date range filtering
+3. POS Interface Development
+
+
+[ ] Main POS Interface
+Product search functionality
+Cart management system
+Real-time price calculations
+Tax and discount handling
+
+
+[ ] Payment Processing
+Multiple payment method support
+Payment validation
+Receipt generation
+
+
+[ ] QR Code Integration
+QR code generation for receipts
+Receipt viewing system
+Mobile-friendly receipt display
+
+
+4. Frontend Development
+[ ] UI/UX Implementation
+Responsive design
+Modern UI components
+AJAX integration
+Real-time updates
+
+
+[ ] JavaScript Functionality
+Cart management
+Price calculations
+Form validations
+AJAX calls
+Testing and Security Phase
+[ ] Security Implementation
+SQL injection prevention
+XSS protection
+CSRF protection
+Input validation
+Data sanitization
+
+
+[ ] Testing
+Unit tests
+Integration tests
+Security testing
+Performance testing
+Documentation and Deployment
+
+
+[ ] Documentation
+Code documentation
+API documentation
+Setup instructions
+User manual
+
+
+[ ] Deployment
+Production environment setup
+Performance optimization
+Security hardening
+Backup system
+Technical Stack
+Backend: PHP 8.x with Laravel framework
+Frontend: HTML5, CSS3, JavaScript (Vue.js recommended)
+Database: MySQL 8.x
+QR Code: PHP QR Code library
+PDF Generation: TCPDF or FPDF
+Version Control: Git
+Additional Libraries:
+Laravel Sanctum for API authentication
+Laravel Excel for CSV export
+Intervention Image for image handling
+Next Steps
+Set up development environment
+Initialize Git repository
+Create basic project structure
+Begin database design and implementation
+Would you like me to proceed with any specific phase or provide more detailed information about any particular component?
+
