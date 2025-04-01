@@ -18,6 +18,17 @@ class DatabaseSeeder extends Seeder
         User::factory()->create([
             'name' => 'Test User',
             'email' => 'test@example.com',
+            'password' => 'Test@123',
+            'role' => 'admin',
+            'status' => true
+        ]);
+
+        $this->call([
+            PaymentMethodSeeder::class,
+            UserSeeder::class,
+            CategorySeeder::class,
+            BrandSeeder::class,
+            ProductSeeder::class,
         ]);
     }
 }

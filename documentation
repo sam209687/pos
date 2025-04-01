@@ -1,0 +1,99 @@
+# POS System Documentation
+
+## Overview
+A modern Point of Sale (POS) system built with Laravel, featuring inventory management, sales tracking, and reporting capabilities.
+
+## Technical Requirements
+- PHP 8.x
+- Laravel 10.x
+- MySQL 8.x
+- Node.js & NPM
+- Composer
+
+## Installation
+1. Clone the repository:
+```bash
+git clone https://github.com/yourusername/pos-system.git
+cd pos-system
+```
+
+2. Install dependencies:
+```bash
+composer install
+npm install
+```
+
+3. Configure environment:
+```bash
+cp .env.example .env
+php artisan key:generate
+```
+
+4. Set up database:
+```bash
+php artisan migrate --seed
+```
+
+5. Build assets:
+```bash
+npm run build
+```
+
+## Features
+- User Authentication & Authorization
+- Product Management
+- Category & Brand Management
+- Real-time POS Interface
+- Sales Tracking & Reporting
+- QR Code Integration
+- Receipt Generation
+
+# POS System User Manual
+
+## Table of Contents
+1. [Getting Started](#getting-started)
+2. [User Roles](#user-roles)
+3. [Using the POS Interface](#using-the-pos-interface)
+4. [Managing Products](#managing-products)
+5. [Processing Sales](#processing-sales)
+6. [Generating Reports](#generating-reports)
+
+## Getting Started
+### Logging In
+1. Navigate to the login page
+2. Enter your email and password
+3. Click "Login"
+
+### Dashboard Overview
+- Quick statistics
+- Recent sales
+- Low stock alerts
+- Daily sales chart
+
+## User Roles
+### Administrator
+- Full system access
+- Manage users
+- View reports
+- Configure system settings
+
+### Cashier
+- Process sales
+- View products
+- Generate receipts
+
+## Using the POS Interface
+### Making a Sale
+1. Search for products
+2. Add items to cart
+3. Apply discounts if needed
+4. Process payment
+5. Generate receipt
+
+### Payment Methods
+- Cash
+- Card
+- Mobile Payment
+
+## Troubleshooting
+Common issues and solutions...

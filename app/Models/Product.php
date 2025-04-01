@@ -2,20 +2,25 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Product extends Model
 {
+    use HasFactory;
+
     protected $fillable = [
-        'category_id',
-        'brand_id',
-        'name',
         'code',
+        'name',
         'description',
         'price',
         'cost_price',
         'quantity',
         'alert_quantity',
+        'category_id',
+        'brand_id',
         'image',
         'status'
     ];
@@ -23,20 +28,22 @@ class Product extends Model
     protected $casts = [
         'price' => 'decimal:2',
         'cost_price' => 'decimal:2',
+        'quantity' => 'integer',
+        'alert_quantity' => 'integer',
         'status' => 'boolean'
     ];
 
-    public function category()
+    public function category(): BelongsTo
     {
         return $this->belongsTo(Category::class);
     }
 
-    public function brand()
+    public function brand(): BelongsTo
     {
         return $this->belongsTo(Brand::class);
     }
 
-    public function saleItems()
+    public function saleItems(): HasMany
     {
         return $this->hasMany(SaleItem::class);
     }

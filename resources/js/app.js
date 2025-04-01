@@ -1,3 +1,5 @@
+// Main application JavaScript file
+// Import any JavaScript dependencies here
 import './bootstrap';
 import { initializeSearch } from './search';
 import { initializeCart } from './cart';

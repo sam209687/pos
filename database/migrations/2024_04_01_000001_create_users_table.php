@@ -8,17 +8,21 @@ return new class extends Migration
 {
     public function up()
     {
-        Schema::create('categories', function (Blueprint $table) {
+        Schema::create('users', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->text('description')->nullable();
+            $table->string('email')->unique();
+            $table->timestamp('email_verified_at')->nullable();
+            $table->string('password');
+            $table->enum('role', ['admin', 'cashier'])->default('cashier');
             $table->boolean('status')->default(true);
+            $table->rememberToken();
             $table->timestamps();
         });
     }
 
     public function down()
     {
-        Schema::dropIfExists('categories');
+        Schema::dropIfExists('users');
     }
-};
+}; 

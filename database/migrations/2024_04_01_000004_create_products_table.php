@@ -10,10 +10,10 @@ return new class extends Migration
     {
         Schema::create('products', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('category_id')->constrained()->onDelete('restrict');
-            $table->foreignId('brand_id')->constrained()->onDelete('restrict');
+            $table->foreignId('category_id')->constrained()->onDelete('cascade');
+            $table->foreignId('brand_id')->constrained()->onDelete('cascade');
             $table->string('name');
-            $table->string('code', 50)->unique();
+            $table->string('code')->unique();
             $table->text('description')->nullable();
             $table->decimal('price', 10, 2);
             $table->decimal('cost_price', 10, 2);
@@ -29,4 +29,4 @@ return new class extends Migration
     {
         Schema::dropIfExists('products');
     }
-};
+}; 

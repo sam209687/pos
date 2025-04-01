@@ -25,7 +25,12 @@ class ProductController extends Controller
         $categories = Category::where('status', true)->get();
         $brands = Brand::where('status', true)->get();
         
-        return view('products.create', compact('categories', 'brands'));
+        // Get the last product code
+        $lastProduct = Product::orderBy('code', 'desc')->first();
+        $lastCode = $lastProduct ? (int)$lastProduct->code + 1 : 1;
+        $nextCode = str_pad($lastCode, 4, '0', STR_PAD_LEFT);
+
+        return view('products.create', compact('categories', 'brands', 'nextCode'));
     }
 
     public function store(ProductRequest $request)
